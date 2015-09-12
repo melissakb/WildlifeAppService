@@ -47,7 +47,11 @@ class MongoDBConnection:
     def set_image_meta(self, scientific_name, value):
         self._species.find_one_and_update(
             {'scientific_name': scientific_name},
-            {'$set': {'image_meta': value}})
+            {'$set': {'image_meta': {}}})
+        for key in value:
+            self._species.find_one_and_update(
+                {'scientific_name': scientific_name},
+                {'$set': {'image_meta.{0}'.format(key): {value[key]}}})
 
     def set_image_id(self, scientific_name, value):
         self._species.find_one_and_update(
