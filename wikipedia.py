@@ -157,7 +157,7 @@ def __main__():
             mongocon.set_image_meta(species, None)
             print 'NO IMAGE: ' + species
             continue
-            
+
         image_id = mongocon.insert_image(download_path, filename)
         mongocon.set_image_meta(species, image_meta)
         mongocon.set_image_meta(species, image_id)

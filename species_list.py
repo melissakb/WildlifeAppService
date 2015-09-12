@@ -1,7 +1,7 @@
 import logging
 
-import api.bison_api
-import database.mongodb
+import bison_api
+import mongodb
 import geography
 
 
